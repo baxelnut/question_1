@@ -6,7 +6,7 @@ ThemeData lightMode = ThemeData(
   brightness: Brightness.light,
   colorScheme: const ColorScheme.light(
     primary: Color(0xff2B637B),
-    onPrimary: Color(0xff04021D),
+    onPrimary: Color(0xffFFFFFF),
     surface: Color(0xffFFFFFF),
     onSurface: Color(0xff04021D),
     // error: Color(0xffFF5539),
@@ -23,31 +23,31 @@ ThemeData lightMode = ThemeData(
       textStyle: const TextStyle(fontWeight: FontWeight.normal),
     ),
     headlineLarge: GoogleFonts.poppins(
-      textStyle: const TextStyle(fontWeight: FontWeight.normal),
+      textStyle: const TextStyle(fontWeight: FontWeight.w600),
     ),
     headlineMedium: GoogleFonts.poppins(
-      textStyle: const TextStyle(fontWeight: FontWeight.normal),
+      textStyle: const TextStyle(fontWeight: FontWeight.w600),
     ),
     headlineSmall: GoogleFonts.poppins(
-      textStyle: const TextStyle(fontWeight: FontWeight.bold),
+      textStyle: const TextStyle(fontWeight: FontWeight.w600),
     ),
     titleLarge: GoogleFonts.poppins(
-      textStyle: const TextStyle(fontWeight: FontWeight.bold),
+      textStyle: const TextStyle(fontWeight: FontWeight.w600),
     ),
     titleMedium: GoogleFonts.poppins(
-      textStyle: const TextStyle(fontWeight: FontWeight.bold),
+      textStyle: const TextStyle(fontWeight: FontWeight.w600),
     ),
     titleSmall: GoogleFonts.poppins(
-      textStyle: const TextStyle(fontWeight: FontWeight.bold),
+      textStyle: const TextStyle(fontWeight: FontWeight.w600),
     ),
     bodyLarge: GoogleFonts.poppins(
-      textStyle: const TextStyle(fontWeight: FontWeight.bold),
+      textStyle: const TextStyle(fontWeight: FontWeight.w500),
     ),
     bodyMedium: GoogleFonts.poppins(
-      textStyle: const TextStyle(fontWeight: FontWeight.normal),
+      textStyle: const TextStyle(fontWeight: FontWeight.w500),
     ),
     bodySmall: GoogleFonts.poppins(
-      textStyle: const TextStyle(fontWeight: FontWeight.bold),
+      textStyle: const TextStyle(fontWeight: FontWeight.w500),
     ),
     labelLarge: GoogleFonts.poppins(
       textStyle: const TextStyle(fontWeight: FontWeight.normal),

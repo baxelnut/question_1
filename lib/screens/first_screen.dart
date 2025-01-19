@@ -29,7 +29,7 @@ class _FirstScreenState extends State<FirstScreen> {
   }
 
   void _checkPalindrome() {
-    String text = _nameController.text.trim();
+    String text = _palindromeController.text.trim();
 
     if (text.isEmpty) {
       setState(() {
@@ -39,10 +39,6 @@ class _FirstScreenState extends State<FirstScreen> {
     }
 
     bool palindrome = isPalindrome(text);
-
-    setState(() {
-      _palindromeHint = palindrome ? 'TRUE' : 'FALSE';
-    });
 
     showDialog(
       context: context,
@@ -65,10 +61,14 @@ class _FirstScreenState extends State<FirstScreen> {
   }
 
   void _navigateToNextScreen() {
+    String username = _nameController.text.trim();
+
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => const SecondScreen(),
+        builder: (context) => SecondScreen(
+          username: username,
+        ),
       ),
     );
   }
@@ -101,14 +101,12 @@ class _FirstScreenState extends State<FirstScreen> {
                 _textFieldWidget(
                   hintText: 'Name',
                   controller: _nameController,
-                  enabled: true,
                   theme: theme,
                 ),
                 const SizedBox(height: 30),
                 _textFieldWidget(
                   hintText: _palindromeHint,
                   controller: _palindromeController,
-                  enabled: false,
                   theme: theme,
                 ),
                 const SizedBox(height: 60),
@@ -136,12 +134,10 @@ class _FirstScreenState extends State<FirstScreen> {
   Widget _textFieldWidget({
     required String hintText,
     required TextEditingController controller,
-    required bool enabled,
     required ThemeData theme,
   }) {
     return TextField(
       controller: controller,
-      enabled: enabled,
       decoration: InputDecoration(
         filled: true,
         fillColor: Colors.white,
@@ -168,7 +164,7 @@ class _FirstScreenState extends State<FirstScreen> {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-          backgroundColor: const Color(0xff2B637B),
+          backgroundColor: theme.colorScheme.primary,
           padding: const EdgeInsets.symmetric(vertical: 15),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
