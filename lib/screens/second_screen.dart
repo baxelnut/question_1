@@ -14,13 +14,21 @@ class SecondScreen extends StatefulWidget {
 }
 
 class _SecondScreenState extends State<SecondScreen> {
-  void _navigateToNextScreen() {
-    Navigator.push(
+  String selectedUserName = 'Select User Name';
+
+  void _navigateToNextScreen() async {
+    final newUser = await Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) => const ThirdScreen(),
       ),
     );
+
+    if (newUser != null) {
+      setState(() {
+        selectedUserName = newUser;
+      });
+    }
   }
 
   @override
@@ -50,7 +58,7 @@ class _SecondScreenState extends State<SecondScreen> {
               theme: theme,
             ),
             _userViewWidget(
-              title: 'Select User Name',
+              title: selectedUserName,
               theme: theme,
             ),
             _buttonWidget(
@@ -69,6 +77,7 @@ class _SecondScreenState extends State<SecondScreen> {
     required ThemeData theme,
     required String username,
   }) {
+    
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -77,7 +86,7 @@ class _SecondScreenState extends State<SecondScreen> {
           style: theme.textTheme.bodyMedium,
         ),
         Text(
-          username,
+          username == '' ? 'username' : username,
           style: theme.textTheme.headlineSmall,
         ),
       ],
